@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 220 55% 18%;
+    --primary-foreground: 40 33% 97%;
+
+    --secondary: 220 20% 95%;
+    --secondary-foreground: 222 47% 15%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 42 76% 52%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 18% 90%;
+    --input: 220 18% 90%;
+    --ring: 220 55% 18%;
+
+    --radius: 0.5rem;
+
+    --navy-deep: 220 60% 12%;
+    --navy-light: 220 30% 97%;
+    --gold: 42 76% 52%;
+    --gold-light: 42 50% 94%;
+
+    --shadow-card: 0 4px 24px -4px hsl(220 55% 18% / 0.07);
+    --shadow-card-hover: 0 12px 36px -8px hsl(220 55% 18% / 0.13);
+    --shadow-header: 0 2px 16px -2px hsl(220 55% 18% / 0.06);
+
+    --font-display: Georgia, "Times New Roman", serif;
+    --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg font-semibold text-sm tracking-wide transition-all duration-200;
+  }
+
+  .btn-lg {
+    @apply px-8 py-4;
+  }
+
+  .btn-md {
+    @apply px-6 py-3;
+  }
+
+  .btn-accent {
+    @apply bg-accent text-accent-foreground;
+  }
+
+  .btn-accent:hover {
+    opacity: 0.9;
+    box-shadow: 0 8px 24px -4px hsl(42 76% 52% / 0.3);
+  }
+
+  .btn-primary-solid {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  .btn-primary-solid:hover {
+    opacity: 0.9;
+  }
+
+  .btn-outline-light {
+    @apply border border-primary-foreground/20 text-primary-foreground;
+  }
+
+  .btn-outline-light:hover {
+    background: hsl(var(--primary-foreground) / 0.1);
+  }
+
+  .btn-outline-dark {
+    @apply border border-border text-foreground;
+  }
+
+  .btn-outline-dark:hover {
+    @apply bg-secondary;
+  }
+
+  .section-padding {
+    @apply py-20 md:py-28;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-foreground mb-4;
+    font-family: var(--font-display);
+  }
+
+  .section-subtitle {
+    @apply text-lg text-muted-foreground max-w-2xl;
+  }
+
+  .card-elevated {
+    @apply bg-card rounded-xl overflow-hidden transition-all duration-300;
+    box-shadow: var(--shadow-card);
+  }
+
+  .card-elevated:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-4px);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  }
+
+  .animate-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .gold-accent-line {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 3px;
+    background: hsl(var(--gold));
+    border-radius: 2px;
+  }
+}
